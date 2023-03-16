@@ -5,6 +5,7 @@ export default function CounterApp() {
  
     const count = ref(0)
     const message = ref("This is a counter app");
+    const newCount = ref(0)
 
     const handleIncrease = () => {
         console.log("increase count")
@@ -22,7 +23,14 @@ export default function CounterApp() {
 
     const handleReset = () => {
         console.log("reset count")
+        count.value = 0
     }
-    return { count, message, handleIncrease, handleDecrease, handleReset };
+
+    const handleSetValue = () => {
+        console.log("set count")
+        count.value = newCount.value
+    }
+
+    return { count, message, newCount, handleIncrease, handleDecrease, handleReset, handleSetValue };
 
   }

@@ -9,8 +9,8 @@
       <button @click = "handleDecrease">Decrease</button>
       <button @click = "handleReset" >Reset</button>
       <div>
-        <input type="text" v-model="count"/>
-        <button>Set value</button>
+        <input type="text" v-model="newCount"/>
+        <button @click="handleSetValue">Set value</button>
       </div>
     </div>
    
@@ -20,10 +20,10 @@
    import CounterApp from '../composable/CounterApp';
    export default{
      setup() {
-       const {count, message, handleIncrease, handleDecrease, handleReset} = CounterApp()
+       const {count, message, newCount, handleIncrease, handleDecrease, handleReset, handleSetValue} = CounterApp()
       
   
-       return { count, message, handleIncrease, handleDecrease, handleReset};
+       return { count, message, newCount, handleIncrease, handleDecrease, handleReset, handleSetValue};
      },
    };
    </script>
