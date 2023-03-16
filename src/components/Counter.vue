@@ -6,8 +6,8 @@
    
       <p>{{ count }}</p>
       <button @click = "handleIncrease">Increase</button>
-      <button @click = "handleDecrease">Decrease</button>
-      <button @click = "handleReset" >Reset</button>
+      <button @click = "handleDecrease" :disabled="count < 1">Decrease</button>
+      <button @click = "handleReset" :disabled="count < 1" >Reset</button>
       <div>
         <input type="number" v-model="newCount"/>
         <button @click="handleSetValue">Set value</button>
@@ -18,6 +18,7 @@
    
    <script>
    import CounterApp from '../composable/CounterApp';
+   import { mapState } from 'vuex'
    export default{
      setup() {
        const {count, message, newCount, handleIncrease, handleDecrease, handleReset, handleSetValue} = CounterApp()
@@ -25,6 +26,9 @@
   
        return { count, message, newCount, handleIncrease, handleDecrease, handleReset, handleSetValue};
      },
+     computed: {
+        ...mapState(['count'])
+    }
    };
    </script>
    
