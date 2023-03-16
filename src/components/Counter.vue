@@ -9,7 +9,7 @@
       <button @click = "handleDecrease">Decrease</button>
       <button @click = "handleReset" >Reset</button>
       <div>
-        <input type="text" v-model="newCount"/>
+        <input type="number" v-model="newCount"/>
         <button @click="handleSetValue">Set value</button>
       </div>
     </div>
