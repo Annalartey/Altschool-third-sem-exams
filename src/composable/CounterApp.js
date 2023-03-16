@@ -29,6 +29,7 @@ export default function CounterApp() {
     const handleSetValue = () => {
         console.log("set count")
         count.value = newCount.value
+        newCount.value = 0
     }
 
     return { count, message, newCount, handleIncrease, handleDecrease, handleReset, handleSetValue };
