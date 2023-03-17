@@ -1,4 +1,5 @@
 # project
+https://altschool-sem-3-counter-app.netlify.app/
 
 ## Project setup
 ```
