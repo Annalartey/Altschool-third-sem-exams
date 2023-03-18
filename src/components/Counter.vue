@@ -10,14 +10,14 @@
           <button @click = "$store.commit ( 'handleGuess' ) " :disabled="!$store.state.guess" >Enter</button>
         </div>
         <div class="guess-no">
-          <h3>Your guessed Number is: </h3>
+          <h3>Your Number is: </h3>
           <p>{{ $store.state.guessed }}</p>
         </div>
        </div>
       
-       <div>
+       <div class="count">
         <p>count is:</p>
-        <p>{{ $store.state.count }}</p>
+        <h1>{{ $store.state.count }}</h1>
        </div>
    
      <div>
@@ -114,5 +114,8 @@
  }
  .operation{
   font-size: xx-large;
+ }
+ .count{
+  font-size: 40px;
  }
     </style>
