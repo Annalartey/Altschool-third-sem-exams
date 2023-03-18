@@ -1,10 +1,11 @@
 <template>
-    <div class="">
+    <div class="main">
        <h1>Welcome,</h1>
    
        <div>
         <div>
           <div>{{ message }}</div>
+          <p>Tell us your answer. Lets see if you guessed right.</p>
           <input type="number" v-model="$store.state.guess"/>
           <button @click = "$store.commit ( 'handleGuess' ) " :disabled="!$store.state.guess" >Enter</button>
         </div>
@@ -20,8 +21,8 @@
        </div>
    
      <div>
-      <button @click = "$store.dispatch ( 'handleIncrease' ) ">Increase</button>
-      <button @click = "$store.dispatch ( 'handleDecrease' ) " :disabled="$store.state.count < 1">Decrease</button>
+      <button @click = "$store.dispatch ( 'handleIncrease' ) "> + random number</button>
+      <button @click = "$store.dispatch ( 'handleDecrease' ) " :disabled="$store.state.count < 1"> - random number</button>
       <button @click = "$store.commit ( 'handleReset' ) " :disabled="$store.state.count < 1" >Reset</button>
      </div>
       <div>
@@ -68,5 +69,8 @@
     }
     a {
       color: #42b983;
+    }
+    .main{
+      background-color: beige;
     }
     </style>
