@@ -21,9 +21,9 @@
        </div>
    
      <div>
-      <button @click = "$store.dispatch ( 'handleIncrease' ) "> + random number</button>
-      <button @click = "$store.dispatch ( 'handleDecrease' ) " :disabled="$store.state.count < 1"> - random number</button>
-      <button @click = "$store.commit ( 'handleReset' ) " :disabled="$store.state.count < 1" >Reset</button>
+      <button @click = "$store.dispatch ( 'handleIncrease' ) " class="operation"> + </button>
+      <button @click = "$store.dispatch ( 'handleDecrease' ) " :disabled="$store.state.count < 1" class="operation"> - </button>
+      <button @click = "$store.commit ( 'handleReset' ) " :disabled="$store.state.count < 1" class="operation">Reset</button>
      </div>
       <div>
         <input type="number" v-model="$store.state.newCount"/>
@@ -93,5 +93,8 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+ }
+ .operation{
+  font-size: xx-large;
  }
     </style>
