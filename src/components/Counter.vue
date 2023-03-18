@@ -1,13 +1,29 @@
 <template>
     <div class="">
-       <h1>Counter App</h1>
+       <h1>Welcome,</h1>
    
-       <div>{{ message }}</div>
+       <div>
+        <div>
+          <div>{{ message }}</div>
+          <input type="number" v-model="$store.state.guess"/>
+          <button @click = "$store.commit ( 'handleGuess' ) " :disabled="!$store.state.guess" >Enter</button>
+        </div>
+        <div>
+          <p>Guessed Number is:</p>
+          <p>{{ $store.state.guessed }}</p>
+        </div>
+       </div>
+      
+       <div>
+        <p>count is:</p>
+        <p>{{ $store.state.count }}</p>
+       </div>
    
-      <p>{{ $store.state.count }}</p>
+     <div>
       <button @click = "$store.dispatch ( 'handleIncrease' ) ">Increase</button>
       <button @click = "$store.dispatch ( 'handleDecrease' ) " :disabled="$store.state.count < 1">Decrease</button>
       <button @click = "$store.commit ( 'handleReset' ) " :disabled="$store.state.count < 1" >Reset</button>
+     </div>
       <div>
         <input type="number" v-model="$store.state.newCount"/>
         <button @click="$store.commit ( 'handleSetValue' ) ">Set value</button>

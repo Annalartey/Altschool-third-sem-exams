@@ -4,7 +4,9 @@ import axios from "axios";
 export default createStore({
   state: {
     count: 0,
-    newCount: 0
+    newCount: 0,
+    guess: 0,
+    guessed: 0
   },
   mutations: {
     handleIncrease (state, randomNumber) {
@@ -12,6 +14,11 @@ export default createStore({
       console.log("randomNumber: ", randomNumber)
       state.count = state.count + randomNumber
       console.log(state.count)
+      if(state.count == state.guessed){
+        alert("Yay... You won.")
+      } else{
+        alert("Sorry, try guessing right next time.")
+      }
   },
 
   handleDecrease(state, randomNumber) {
@@ -19,6 +26,11 @@ export default createStore({
     console.log("randomNumber: ", randomNumber)
     state.count = state.count - randomNumber
     console.log(state.count)
+    if(state.count == state.guessed){
+      alert("Yay... You won.")
+    } else{
+      alert("Sorry, try guessing right next time.")
+    }
   },
 
   handleReset (state) {
@@ -32,6 +44,10 @@ export default createStore({
       state.newCount = 0
       console.log(state.count)
   },
+  handleGuess (state) {
+    state.guessed = state.guess
+    state.guess = 0
+},
   },
   actions: {
     handleIncrease({ commit}) {
