@@ -28,6 +28,7 @@
         <input type="number" v-model="$store.state.newCount"/>
         <button @click="$store.commit ( 'handleSetValue' ) ">Set value</button>
       </div>
+      <p>{{ $store.state.comment }}</p>
     </div>
    
    </template>
@@ -41,7 +42,6 @@
      setup() {
     
       const store = useStore()
-     
 
        const { message} = CounterApp()
       
