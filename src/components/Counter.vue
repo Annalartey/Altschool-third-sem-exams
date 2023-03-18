@@ -71,6 +71,18 @@
       color: #42b983;
     }
     .main{
-      background-color: beige;
+      
     }
+    button{
+  color: #42b983;
+  border: solid 2px #42b983 ;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: large;
+ }
+ button:hover{
+  color: #ffffff;
+  background-color: #42b983;
+  cursor: pointer;
+ }
     </style>
