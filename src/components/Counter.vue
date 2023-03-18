@@ -5,8 +5,8 @@
        <div>{{ message }}</div>
    
       <p>{{ $store.state.count }}</p>
-      <button @click = "$store.commit ( 'handleIncrease' ) ">Increase</button>
-      <button @click = "$store.commit ( 'handleDecrease' ) " :disabled="$store.state.count < 1">Decrease</button>
+      <button @click = "$store.dispatch ( 'handleIncrease' ) ">Increase</button>
+      <button @click = "$store.dispatch ( 'handleDecrease' ) " :disabled="$store.state.count < 1">Decrease</button>
       <button @click = "$store.commit ( 'handleReset' ) " :disabled="$store.state.count < 1" >Reset</button>
       <div>
         <input type="number" v-model="$store.state.newCount"/>
@@ -27,10 +27,10 @@
       const store = useStore()
      
 
-       const { message, newCount} = CounterApp()
+       const { message} = CounterApp()
       
   
-       return { message, newCount};
+       return { message};
      }
    };
    

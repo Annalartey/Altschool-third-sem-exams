@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-
+import axios from "axios";
 
 export default createStore({
   state: {
@@ -7,18 +7,18 @@ export default createStore({
     newCount: 0
   },
   mutations: {
-    handleIncrease (state) {
-      console.log("increase count")
+    handleIncrease (state, randomNumber) {
       console.log(state.count)
-      state.count = state.count + 1
+      console.log("randomNumber: ", randomNumber)
+      state.count = state.count + randomNumber
       console.log(state.count)
   },
 
-  handleDecrease(state) {
-      console.log("decrease count")
-      console.log(state.count)
-      state.count = state.count - 1
-      console.log(state.count)
+  handleDecrease(state, randomNumber) {
+    console.log(state.count)
+    console.log("randomNumber: ", randomNumber)
+    state.count = state.count - randomNumber
+    console.log(state.count)
   },
 
   handleReset (state) {
@@ -32,5 +32,21 @@ export default createStore({
       state.newCount = 0
       console.log(state.count)
   },
+  },
+  actions: {
+    handleIncrease({ commit}) {
+      console.log ('increaseCounter (action)')
+      axios('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new').then(response => {
+        console.log('response: ', response)
+        commit('handleIncrease', response.data)
+      })
+    },
+    handleDecrease({ commit}) {
+      console.log ('DecreaseCounter (action)')
+      axios('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new').then(response => {
+        console.log('response: ', response)
+        commit('handleDecrease', response.data)
+      })
+    }
   }
 })
