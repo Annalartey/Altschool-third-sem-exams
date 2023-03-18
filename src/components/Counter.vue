@@ -4,13 +4,13 @@
    
        <div>{{ message }}</div>
    
-      <p>{{ count }}</p>
-      <button @click = "handleIncrease">Increase</button>
-      <button @click = "handleDecrease" :disabled="count < 1">Decrease</button>
-      <button @click = "handleReset" :disabled="count < 1" >Reset</button>
+      <p>{{ $store.state.count }}</p>
+      <button @click = "$store.commit ( 'handleIncrease' ) ">Increase</button>
+      <button @click = "$store.commit ( 'handleDecrease' ) " :disabled="$store.state.count < 1">Decrease</button>
+      <button @click = "$store.commit ( 'handleReset' ) " :disabled="$store.state.count < 1" >Reset</button>
       <div>
-        <input type="number" v-model="newCount"/>
-        <button @click="handleSetValue">Set value</button>
+        <input type="number" v-model="$store.state.newCount"/>
+        <button @click="$store.commit ( 'handleSetValue' ) ">Set value</button>
       </div>
     </div>
    
@@ -18,16 +18,19 @@
    
    <script>
    import CounterApp from '../composable/CounterApp';
+   import { useStore } from 'vuex'
   
 
    export default{
      setup() {
     
-      
-       const {count, message, newCount, handleIncrease, handleDecrease, handleReset, handleSetValue} = CounterApp()
+      const store = useStore()
+     
+
+       const { message, newCount} = CounterApp()
       
   
-       return { count, message, newCount, handleIncrease, handleDecrease, handleReset, handleSetValue};
+       return { message, newCount};
      }
    };
    
